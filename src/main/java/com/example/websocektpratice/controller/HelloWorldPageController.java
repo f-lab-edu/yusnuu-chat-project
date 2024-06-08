@@ -12,9 +12,4 @@ public class HelloWorldPageController {
         model.addAttribute("message", "Hello, World!");
         return "hello";
     }
-    @GetMapping("/chat")
-    public String chat(Model model) {
-        model.addAttribute("message", "Hello, World!");
-        return "chat";
-    }
 }
