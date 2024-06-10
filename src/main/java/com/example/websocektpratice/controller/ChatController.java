@@ -13,10 +13,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class ChatController {
-    private SimpMessagingTemplate simpMessagingTemplate;
     private final ChatService chatService;
-    public ChatController(SimpMessagingTemplate simpMessagingTemplate, ChatService chatService) {
-        this.simpMessagingTemplate = simpMessagingTemplate;
+    public ChatController(ChatService chatService) {
         this.chatService = chatService;
     }
 
@@ -28,7 +26,5 @@ public class ChatController {
     public void sendMessage(@Payload ChatMessage chatMessage) throws Exception {
         chatService.sendMessageFromClientToRBMQ(chatMessage);
         chatService.sendMessageFromRBMQToClient(chatMessage.getRoomId());
-
-
     }
 }
