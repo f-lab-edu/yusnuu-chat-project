@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class ChatController {
-    @Autowired
     private SimpMessagingTemplate simpMessagingTemplate;
     private final ChatService chatService;
     public ChatController(SimpMessagingTemplate simpMessagingTemplate, ChatService chatService) {
